@@ -57,7 +57,7 @@ export default function Page(): JSX.Element {
       <div className={styles.description}>
         <p>
           examples/basic&nbsp;
-          <Code className={styles.code}>docs</Code>
+          <Code className={styles.code}>web</Code>
         </p>
         <div>
           <a
@@ -78,7 +78,7 @@ export default function Page(): JSX.Element {
         </div>
       </div>
 
-      <Button appName="docs" className={styles.button}>
+      <Button appName="web" className={styles.button}>
         Click me!
       </Button>
 
@@ -87,9 +87,9 @@ export default function Page(): JSX.Element {
           <div className={styles.logos}>
             <div className={styles.circles}>
               <Image
-                alt="Turborepo"
+                alt=""
                 height={614}
-                src="circles.svg"
+                src="/web/circles.svg"
                 width={614}
                 style={{ pointerEvents: "none" }}
               />
@@ -100,10 +100,10 @@ export default function Page(): JSX.Element {
 
             <div className={styles.logo}>
               <Image
-                alt=""
+                alt="Turborepo"
                 height={120}
                 priority
-                src="turborepo.svg"
+                src="/web/turborepo.svg"
                 width={120}
                 style={{ pointerEvents: "none" }}
               />

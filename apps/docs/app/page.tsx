@@ -57,7 +57,7 @@ export default function Page(): JSX.Element {
       <div className={styles.description}>
         <p>
           examples/basic&nbsp;
-          <Code className={styles.code}>web</Code>
+          <Code className={styles.code}>docs</Code>
         </p>
         <div>
           <a
@@ -71,14 +71,14 @@ export default function Page(): JSX.Element {
               className={styles.vercelLogo}
               height={24}
               priority
-              src="/vercel.svg"
+              src="/docs/vercel.svg"
               width={100}
             />
           </a>
         </div>
       </div>
 
-      <Button appName="web" className={styles.button}>
+      <Button appName="docs" className={styles.button}>
         Click me!
       </Button>
 
@@ -87,9 +87,9 @@ export default function Page(): JSX.Element {
           <div className={styles.logos}>
             <div className={styles.circles}>
               <Image
-                alt=""
+                alt="Turborepo"
                 height={614}
-                src="circles.svg"
+                src="/docs/circles.svg"
                 width={614}
                 style={{ pointerEvents: "none" }}
               />
@@ -100,10 +100,10 @@ export default function Page(): JSX.Element {
 
             <div className={styles.logo}>
               <Image
-                alt="Turborepo"
+                alt=""
                 height={120}
                 priority
-                src="turborepo.svg"
+                src="/docs/turborepo.svg"
                 width={120}
                 style={{ pointerEvents: "none" }}
               />
