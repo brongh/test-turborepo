@@ -6,14 +6,7 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "web#build": {
-      "dependsOn": ["^web#build"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "docs#build": {
-      "dependsOn": ["^docs#build"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
+
     "lint": {
       "dependsOn": ["^lint"]
     },
