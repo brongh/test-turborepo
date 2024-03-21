@@ -23,7 +23,18 @@ export default async function handler(
     }
 
     const proxyRes = await fetch(targetUrl);
-    const data = await proxyRes.text();
+    const contentType = proxyRes.headers.get("Content-Type");
+    if (contentType?.includes("image")) {
+      const arrayBuffer = await proxyRes.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
+      res.setHeader("Content-Type", contentType);
+      return res.send(buffer);
+    } else {
+      const data = await proxyRes.text();
+      res.setHeader("Content-Type", contentType || "text/html");
+      return res.send(data);
+    }
+    // const data = await proxyRes.text();
 
     // return new NextResponse(data, {
     //   headers: {
@@ -31,11 +42,8 @@ export default async function handler(
     //   },
     //   status: proxyRes.status,
     // });
-    res.setHeader(
-      "content-type",
-      proxyRes.headers.get("content-type") || "text/html"
-    );
-    return res.status(proxyRes.status).send(data);
+    // res.setHeader("Content-Type", contentType || "text/html");
+    // return res.status(proxyRes.status).send(data);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Error proxying request" });
