@@ -2,4 +2,5 @@
 module.exports = {
   transpilePackages: ["@repo/ui"],
   basePath: "/web",
+  assetPrefix: "/web/",
 };
