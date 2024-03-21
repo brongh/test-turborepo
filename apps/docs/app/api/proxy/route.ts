@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
-    const path = req.nextUrl.pathname;
     const searchParams = req.nextUrl.searchParams;
 
     const slug = searchParams.get("slug");
+    const path = searchParams.get("path");
 
     let targetUrl: string;
 
