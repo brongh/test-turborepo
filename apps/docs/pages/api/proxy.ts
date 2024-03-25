@@ -5,6 +5,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { path, slug } = req.query;
+  console.log("PATH: ", path);
 
   try {
     let targetUrl: string;
@@ -16,7 +17,8 @@ export default async function handler(
         console.log(targetUrl);
         break;
       case "web2":
-        targetUrl = `https://test-turborepo-web2.vercel.app${finalSlug}`;
+        targetUrl = `https://test-turborepo-web2.vercel.app/web2${finalSlug}`;
+        console.log(targetUrl);
         break;
       default:
         return res.status(404).json({ error: "Invalid path" });
