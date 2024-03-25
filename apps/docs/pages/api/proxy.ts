@@ -6,32 +6,37 @@ export default async function handler(
 ) {
   const { path, slug } = req.query;
 
-  console.log(path, slug);
   try {
     let targetUrl: string;
     let finalSlug = slug === ":slug*" ? "" : slug;
 
     switch (path) {
       case "web":
-        targetUrl = `https://app.muslimpro.app/${finalSlug}`;
+        targetUrl = `https://test-turborepo-web-five.vercel.app/web${finalSlug}`;
+        console.log(targetUrl);
         break;
       case "web2":
-        targetUrl = `https://app.muslimpro.app/${finalSlug}`;
+        targetUrl = `https://test-turborepo-web2.vercel.app${finalSlug}`;
         break;
       default:
         return res.status(404).json({ error: "Invalid path" });
     }
 
+    console.log("target: ", targetUrl);
     const proxyRes = await fetch(targetUrl);
     const contentType = proxyRes.headers.get("Content-Type");
+
     if (contentType?.includes("image")) {
       const arrayBuffer = await proxyRes.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
+      console.log(buffer);
       res.setHeader("Content-Type", contentType);
+      // res.setHeader("Content-Type", 'application/javascript');
       return res.send(buffer);
     } else {
       const data = await proxyRes.text();
       res.setHeader("Content-Type", contentType || "text/html");
+      console.log(data);
       return res.send(data);
     }
     // const data = await proxyRes.text();
