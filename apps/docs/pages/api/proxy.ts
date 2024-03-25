@@ -5,7 +5,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { path, slug } = req.query;
-  console.log("PATH: ", path);
 
   try {
     let targetUrl: string;
@@ -14,17 +13,14 @@ export default async function handler(
     switch (path) {
       case "web":
         targetUrl = `https://test-turborepo-web-five.vercel.app/web${finalSlug}`;
-        console.log(targetUrl);
         break;
       case "web2":
         targetUrl = `https://test-turborepo-web2.vercel.app/web2${finalSlug}`;
-        console.log(targetUrl);
         break;
       default:
         return res.status(404).json({ error: "Invalid path" });
     }
 
-    console.log("target: ", targetUrl);
     const proxyRes = await fetch(targetUrl);
     const contentType = proxyRes.headers.get("Content-Type");
 

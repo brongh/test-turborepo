@@ -2,7 +2,7 @@
 module.exports = {
   transpilePackages: ["@repo/ui"],
   basePath: "/web",
-  assetPrefix: process.env.ASSET_PREFIX || "",
+  assetPrefix: "https://test-turborepo-web-five.vercel.app/web",
   beforeFiles: [
     {
       source: "/web",
