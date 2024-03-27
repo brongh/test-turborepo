@@ -10,7 +10,7 @@ export default function Home() {
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           e.preventDefault();
           console.log("clicked");
-          router.push("/web2");
+          router.push("/web2/first");
         }}
       >
         home
