@@ -14,10 +14,10 @@ export default async function handler(
 
     switch (path) {
       case "web":
-        targetUrl = `https://test-turborepo-web-five.vercel.app/web${finalSlug}`;
+        targetUrl = `https://test-turborepo-web-five.vercel.app/web/${finalSlug}`;
         break;
       case "web2":
-        targetUrl = `https://test-turborepo-web2.vercel.app/web2${finalSlug}`;
+        targetUrl = `https://test-turborepo-web2.vercel.app/web2/${finalSlug}`;
         break;
       default:
         return res.status(404).json({ error: "Invalid path" });
