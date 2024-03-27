@@ -4,9 +4,13 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "public/**"]
+      "outputs": [".next/**", "public/**", "!.next/cache/**"]
     },
-
+    "web#build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "public/**", "!.next/cache/**"],
+      "env": ["APPLICATION_DOMAIN", "APPLICATION_BASE_PATH"]
+    },
     "lint": {
       "dependsOn": ["^lint"]
     },
