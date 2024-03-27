@@ -10,8 +10,9 @@ export default function FirstPage() {
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           e.preventDefault();
           console.log("clicked");
-          router.push("/web2");
+          router.push("/");
         }}
+        className="px-3 py-2 rounded-none bg-white hover:bg-purple-500 active:bg-purple-800 shadow-lg shadow-white"
       >
         home
       </button>
