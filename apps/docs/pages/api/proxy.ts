@@ -9,6 +9,8 @@ export default async function handler(
   try {
     let targetUrl: string;
     let finalSlug = slug === ":slug*" ? "" : slug;
+    console.log("slug: ", slug);
+    console.log("path: ", path);
 
     switch (path) {
       case "web":
@@ -27,14 +29,12 @@ export default async function handler(
     if (contentType?.includes("image")) {
       const arrayBuffer = await proxyRes.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
-      console.log(buffer);
       res.setHeader("Content-Type", contentType);
       // res.setHeader("Content-Type", 'application/javascript');
       return res.send(buffer);
     } else {
       const data = await proxyRes.text();
       res.setHeader("Content-Type", contentType || "text/html");
-      console.log(data);
       return res.send(data);
     }
     // const data = await proxyRes.text();
